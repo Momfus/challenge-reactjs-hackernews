@@ -1,18 +1,18 @@
 import React from "react";
 import "./App.css";
-import { FavoritesProvider } from "./Contexts/favoritesContext";
+import { HackerNewsProvider } from "./Contexts/hackerNewsContext";
 import { BrowserRouter } from "react-router-dom";
 import Header from "./Components/Header/header";
 import { AppRoutes } from "./Routes/routes";
 
 function App() {
   return (
-    <FavoritesProvider>
+    <HackerNewsProvider>
       <BrowserRouter>
         <Header title="Hacker News" />
         <AppRoutes></AppRoutes>
       </BrowserRouter>
-    </FavoritesProvider>
+    </HackerNewsProvider>
   );
 }
 

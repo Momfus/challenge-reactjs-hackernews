@@ -1,13 +1,16 @@
-import React from 'react';
-import './App.css';
-import { FavoritesProvider } from './contexts/favoritesContext';
-import { BrowserRouter } from 'react-router-dom';
+import React from "react";
+import "./App.css";
+import { FavoritesProvider } from "./Contexts/favoritesContext";
+import { BrowserRouter } from "react-router-dom";
+import Header from "./Components/Header/header";
+import { AppRoutes } from "./Routes/routes";
 
 function App() {
   return (
     <FavoritesProvider>
       <BrowserRouter>
-        <h1>Test</h1>
+        <Header title="Hacker News" />
+        <AppRoutes></AppRoutes>
       </BrowserRouter>
     </FavoritesProvider>
   );

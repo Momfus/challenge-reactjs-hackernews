@@ -79,7 +79,7 @@ const PostCard = ({ post }: { post: Post }) => {
       </div>
       <div className="h-full  flex items-center justify-center ">
         <button
-          className="h-full relative z-10 p-4 like-button"
+          className="h-full relative z-0 p-4 like-button"
           onClick={onFavsChange}
         >
           {isFavorite ? (

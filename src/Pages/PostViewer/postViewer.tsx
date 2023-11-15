@@ -5,6 +5,7 @@ import PostSelectorType from "../../Components/PostSelectorType/postSelectorType
 import { useContext } from "react";
 import { HackerNewsContext } from "../../Contexts/hackerNewsContext";
 import Loading from "../../shared/loading";
+import TechFilter from "../../Components/TechFilter/techFilter";
 
 const PostViewer = ({ typeView }: { typeView: VIEWTYPE }) => {
   const context = useContext(HackerNewsContext);
@@ -16,6 +17,9 @@ const PostViewer = ({ typeView }: { typeView: VIEWTYPE }) => {
   return (
     <>
       <PostSelectorType typeView={typeView} />
+      <div className="flex justify-center mt-5">
+        <TechFilter></TechFilter>
+      </div>
       {context.loadingApi ? <Loading /> : renderPostList()}
     </>
   );

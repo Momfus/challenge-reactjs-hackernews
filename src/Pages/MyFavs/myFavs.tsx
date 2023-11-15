@@ -1,8 +1,6 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import Layout from "../../Components/Layout/layout";
-import { loadFavorites } from "../../Utils/localStorage";
 import PostListPage from "../../Components/PostListPage/postListPage";
-import { Post } from "../../Models/post.model";
 import { HackerNewsContext } from "../../Contexts/hackerNewsContext";
 
 function MyFavs() {

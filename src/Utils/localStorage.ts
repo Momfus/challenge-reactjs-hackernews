@@ -1,4 +1,6 @@
-export const loadFavorites = (): string[] => {
+import { Post } from "../Models/post.model";
+
+export const loadFavorites = (): Post[] => {
   try {
     const serializedFavorites = localStorage.getItem("favorites");
     if (serializedFavorites === null) {
@@ -6,12 +8,12 @@ export const loadFavorites = (): string[] => {
     }
     return JSON.parse(serializedFavorites);
   } catch (err) {
-    return [];
     console.error(err);
+    return [];
   }
 };
 
-export const saveFavorites = (favorites: string[]): void => {
+export const saveFavorites = (favorites: Post[]): void => {
   try {
     const serializedFavorites = JSON.stringify(favorites);
     localStorage.setItem("favorites", serializedFavorites);

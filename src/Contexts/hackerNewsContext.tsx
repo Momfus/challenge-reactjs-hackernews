@@ -7,9 +7,6 @@ const baseUrl = process.env.REACT_APP_BASE_URL;
 const searchtype: string = "search_by_date";
 
 export const HackerNewsContext = createContext({
-  favorites: [] as string[],
-  addFavorite: (id: string) => {},
-  removeFavorite: (id: string) => {},
   loadingApi: true,
   page: 0,
   setPage: (page: number) => {},
@@ -23,9 +20,6 @@ export const HackerNewsContext = createContext({
 export const HackerNewsProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  // Favorite state
-  const [favorites, setFavorites] = useState<string[]>(loadFavorites());
-
   // Posts state
   const [posts, setPosts] = useState<Post[]>([]);
 
@@ -36,18 +30,6 @@ export const HackerNewsProvider: React.FC<{ children: React.ReactNode }> = ({
 
   // Api loading state
   const [loadingApi, setLoadingApi] = useState<boolean>(true);
-
-  const addFavorite = (id: string) => {
-    const newFavorites = [...favorites, id];
-    setFavorites(newFavorites);
-    saveFavorites(newFavorites);
-  };
-
-  const removeFavorite = (id: string) => {
-    const newFavorites = favorites.filter((favorite) => favorite !== id);
-    setFavorites(newFavorites);
-    saveFavorites(newFavorites);
-  };
 
   // Get from API
 
@@ -81,9 +63,6 @@ export const HackerNewsProvider: React.FC<{ children: React.ReactNode }> = ({
   return (
     <HackerNewsContext.Provider
       value={{
-        favorites,
-        addFavorite,
-        removeFavorite,
         loadingApi,
         page,
         setPage,

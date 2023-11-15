@@ -1,10 +1,9 @@
 import Layout from "../../Components/Layout/layout";
 
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function NotFound() {
   const navigate = useNavigate();
-  const location = useLocation();
 
   return (
     <Layout>

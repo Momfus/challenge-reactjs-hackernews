@@ -1,12 +1,20 @@
 import { useContext } from "react";
 import Layout from "../../Components/Layout/layout";
 import { HackerNewsContext } from "../../Contexts/hackerNewsContext";
+import PostListPage from "../../Components/PostListPage/postListPage";
 
-function All() {
-  const context: any = useContext(HackerNewsContext);
-  return (
-    <Layout>{context.loadingApi ? <p>Loading...</p> : <h2>All</h2>}</Layout>
-  );
-}
+const All = () => {
+  const context = useContext(HackerNewsContext);
+
+  const renderAllList = () => {
+    return (
+      <Layout>
+        <PostListPage postListData={context.posts}></PostListPage>
+      </Layout>
+    );
+  };
+
+  return <div className="block-overflow">{renderAllList()}</div>;
+};
 
 export default All;

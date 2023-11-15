@@ -11,13 +11,13 @@ export const HackerNewsContext = createContext({
   addFavorite: (id: string) => {},
   removeFavorite: (id: string) => {},
   loadingApi: true,
-  setLoadingApi: (loading: boolean) => {},
   page: 0,
   setPage: (page: number) => {},
   perPage: 10,
   setPerPage: (perPage: number) => {},
   technologyType: "",
   setTechnologyType: (technologyType: string) => {},
+  posts: [] as Post[],
 });
 
 export const HackerNewsProvider: React.FC<{ children: React.ReactNode }> = ({
@@ -85,13 +85,13 @@ export const HackerNewsProvider: React.FC<{ children: React.ReactNode }> = ({
         addFavorite,
         removeFavorite,
         loadingApi,
-        setLoadingApi,
         page,
         setPage,
         perPage,
         setPerPage,
         technologyType,
         setTechnologyType,
+        posts,
       }}
     >
       {children}

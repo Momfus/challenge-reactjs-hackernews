@@ -4,18 +4,28 @@ import { HeartIcon as HeartOutlineIcon } from "@heroicons/react/outline";
 import { ClockIcon } from "@heroicons/react/outline";
 import { truncateText } from "../../Utils/helpers";
 import "./postCard.css";
+import { useState } from "react";
 
 const PostCard = ({ post }: { post: Post }) => {
   const onOpenStoryLink = () => {
-    console.log("TODO > Story Link");
+    if (post.story_url) {
+      window.open(post.story_url, "_blank");
+    } else {
+      console.log("ERROR: This card does not have a story_url");
+    }
   };
 
-  const onFavsChange = () => {
-    console.log("TODO > Favs Change");
+  const onFavsChange = (event: React.MouseEvent) => {
+    event.stopPropagation();
+    console.log("TODO > Favs Change > set to localStorage");
+    setLike(!like);
   };
+
+  const [like, setLike] = useState<boolean>(post.liked);
+
   return (
     <div
-      className="m-8 w-96 h-24 bg-opacity-80 rounded-lg border border-gray-400 flex justify-between cursor-pointer hover:bg-opacity-60"
+      className="card m-8 w-96 h-24 bg-opacity-80 rounded-lg border border-gray-400 flex justify-between cursor-pointer hover:bg-opacity-60"
       onClick={onOpenStoryLink}
     >
       <div className="flex flex-col justify-center ml-4">
@@ -34,7 +44,7 @@ const PostCard = ({ post }: { post: Post }) => {
           className="h-full relative z-10 p-4 like-button"
           onClick={onFavsChange}
         >
-          {post.liked ? (
+          {like ? (
             <HeartIcon className="h-12 w-12 text-red-600" />
           ) : (
             <HeartOutlineIcon className="h-12 w-12 text-red-600" />

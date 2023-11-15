@@ -2,8 +2,8 @@ import "./App.css";
 import { HackerNewsProvider } from "./Contexts/hackerNewsContext";
 import { BrowserRouter } from "react-router-dom";
 
-import { AppRoutes } from "./Routes/routes";
-import Header from "./Components/Header";
+import { AppRoutes } from "./Route/routes";
+import Header from "./Components/Header/header";
 
 function App() {
   return (

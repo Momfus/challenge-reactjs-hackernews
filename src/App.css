@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.app-routes {
+  overflow-y: auto;
+  height: calc(100vh - 80px); /* altura por defecto */
+}
+
+@media (max-width: 768px) {
+  /* ajusta este valor al punto de ruptura que necesites */
+  .app-routes {
+    height: calc(100vh - 120px); /* altura para pantallas pequeñas */
+  }
+}

@@ -11,7 +11,9 @@ function App() {
       <BrowserRouter>
         <Header title="Hacker News" />
 
-        <AppRoutes></AppRoutes>
+        <div className="app-routes">
+          <AppRoutes />
+        </div>
       </BrowserRouter>
     </HackerNewsProvider>
   );

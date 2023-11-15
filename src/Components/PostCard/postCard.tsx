@@ -1,7 +1,7 @@
+import { Post } from "../../Models/post.model";
 
-function PostCard() {
-
-}
-
+const PostCard = ({ post }: { post: Post }) => {
+  return <div>Test card</div>;
+};
 
 export default PostCard;

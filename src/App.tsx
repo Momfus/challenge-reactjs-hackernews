@@ -10,6 +10,7 @@ function App() {
     <HackerNewsProvider>
       <BrowserRouter>
         <Header title="Hacker News" />
+
         <AppRoutes></AppRoutes>
       </BrowserRouter>
     </HackerNewsProvider>

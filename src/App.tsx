@@ -1,5 +1,5 @@
 import { HackerNewsProvider } from "./Contexts/hackerNewsContext";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter as Router } from "react-router-dom";
 
 import { AppRoutes } from "./Routes/routes";
 import Header from "./Components/Header/header";
@@ -7,11 +7,10 @@ import Header from "./Components/Header/header";
 function App() {
   return (
     <HackerNewsProvider>
-      <BrowserRouter>
+      <Router>
         <Header title="Hacker News" />
-
         <AppRoutes />
-      </BrowserRouter>
+      </Router>
     </HackerNewsProvider>
   );
 }

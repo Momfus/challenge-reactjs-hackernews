@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { loadFavorites, saveFavorites } from "../Utils/localStorage";
-import { Post } from "../Model/post.model";
-import { PostResultsSearch } from "../Model/post-results.model";
+import { Post } from "../Models/post.model";
+import { PostResultsSearch } from "../Models/post-results.model";
 
 const baseUrl = "https://hn.algolia.com/api/v1";
 const searchtype: string = "search_by_date";

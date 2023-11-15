@@ -1,4 +1,4 @@
-import Layout from "../../Components/Layout/layout";
+import Layout from "../../Component/Layout/layout";
 
 import { useLocation, useNavigate } from "react-router-dom";
 

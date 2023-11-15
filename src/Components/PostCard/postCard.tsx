@@ -32,12 +32,12 @@ const PostCard = ({ post }: { post: Post }) => {
 
   return (
     <div
-      className="card m-8 w-96 h-24 bg-opacity-80 rounded-lg border border-gray-400 flex justify-between cursor-pointer hover:bg-opacity-60"
+      className="card m-8 lg:w-96 lg:h-24 w-72 h-32 bg-opacity-80 rounded-lg border border-gray-400 flex justify-between cursor-pointer hover:bg-opacity-60"
       onClick={onOpenStoryLink}
     >
-      <div className="flex flex-col justify-center ml-4">
+      <div className="flex flex-col justify-start ml-4">
         {post.created_at && (
-          <div className="flex items-center">
+          <div className="flex items-center mt-1">
             <ClockIcon className="h-4 w-4 text-gray mr-2" />
             <p className="m-0 text-gray-400 text-xs">{post.created_at}</p>
           </div>

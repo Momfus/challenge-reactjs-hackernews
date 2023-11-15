@@ -50,14 +50,20 @@ export const HackerNewsProvider: React.FC<{ children: React.ReactNode }> = ({
   // Api loading state
   const [loadingApi, setLoadingApi] = useState<boolean>(true);
 
-  // Get from API
+  // Check for post likes
+  const checkForPostsAsLiked = (posts: Post[]): Post[] => {
+    return posts.map((post) => ({
+      ...post,
+      liked: favs.some((fav) => fav.objectID === post.objectID),
+    }));
+  };
 
+  // Get from API
   useEffect(() => {
     const loadingPostFromApi = async () => {
       setLoadingApi(true);
-      console.log(
-        `${baseUrl}/${searchtype}?query=${technologyType}&page=${page}&hitsPerPage=${perPage}`
-      );
+
+      console.log(favs);
 
       try {
         const response = await fetch(
@@ -67,10 +73,13 @@ export const HackerNewsProvider: React.FC<{ children: React.ReactNode }> = ({
         const dataResults: PostResultsSearch = await response.json();
 
         // The attributes to use for the post UI are author, story_title, story_url, created_at (the API manual don't give any information how to filter the null values)
-        const dataPostsArray = dataResults.hits.filter(
+        let dataPostsArray = dataResults.hits.filter(
           (post) =>
             post.author && post.story_title && post.story_url && post.created_at
         );
+
+        dataPostsArray = checkForPostsAsLiked(dataPostsArray);
+
         setPosts(dataPostsArray);
         console.log(dataPostsArray);
       } catch (error) {

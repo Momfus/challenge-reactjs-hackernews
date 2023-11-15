@@ -3,7 +3,7 @@ import { loadFavorites, saveFavorites } from "../Utils/localStorage";
 import { Post } from "../Models/post.model";
 import { PostResultsSearch } from "../Models/post-results.model";
 
-const baseUrl = "https://hn.algolia.com/api/v1";
+const baseUrl = process.env.REACT_APP_BASE_URL;
 const searchtype: string = "search_by_date";
 
 export const HackerNewsContext = createContext({

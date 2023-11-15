@@ -21,3 +21,17 @@ export const saveFavorites = (favorites: Post[]): void => {
     console.error(err);
   }
 };
+
+export const addFavoriteToLocalStorage = (post: Post): void => {
+  const favorites = loadFavorites();
+  favorites.push(post);
+  saveFavorites(favorites);
+};
+
+export const removeFavoriteFromLocalStorage = (post: Post): void => {
+  let favorites = loadFavorites();
+  favorites = favorites.filter(
+    (favorite) => favorite.objectID !== post.objectID
+  );
+  saveFavorites(favorites);
+};

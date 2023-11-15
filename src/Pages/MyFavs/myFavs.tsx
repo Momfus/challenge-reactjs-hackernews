@@ -1,23 +1,19 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Layout from "../../Components/Layout/layout";
 import { loadFavorites } from "../../Utils/localStorage";
 import PostListPage from "../../Components/PostListPage/postListPage";
 import { Post } from "../../Models/post.model";
+import { HackerNewsContext } from "../../Contexts/hackerNewsContext";
 
 function MyFavs() {
-  const [favorites, setFavorites] = useState<Post[]>([]);
-
-  useEffect(() => {
-    const loadedFavorites = loadFavorites();
-    setFavorites(loadedFavorites);
-  }, []);
+  const { favs } = useContext(HackerNewsContext);
 
   return (
     <Layout>
-      {favorites.length === 0 ? (
+      {favs.length === 0 ? (
         <p>No favorite post added</p>
       ) : (
-        <PostListPage postListData={favorites}></PostListPage>
+        <PostListPage postListData={favs}></PostListPage>
       )}
     </Layout>
   );

@@ -4,9 +4,14 @@ import { HeartIcon as HeartOutlineIcon } from "@heroicons/react/outline";
 import { ClockIcon } from "@heroicons/react/outline";
 import { truncateText } from "../../Utils/helpers";
 import "./postCard.css";
-import { useState } from "react";
+import { useContext } from "react";
+import { HackerNewsContext } from "../../Contexts/hackerNewsContext";
 
 const PostCard = ({ post }: { post: Post }) => {
+  const { favs, addFavorite, removeFavorite } = useContext(HackerNewsContext);
+
+  const isFavorite = favs.some((fav) => fav.objectID === post.objectID);
+
   const onOpenStoryLink = () => {
     if (post.story_url) {
       window.open(post.story_url, "_blank");
@@ -17,11 +22,13 @@ const PostCard = ({ post }: { post: Post }) => {
 
   const onFavsChange = (event: React.MouseEvent) => {
     event.stopPropagation();
-    console.log("TODO > Favs Change > set to localStorage");
-    setLike(!like);
-  };
 
-  const [like, setLike] = useState<boolean>(post.liked);
+    if (isFavorite) {
+      removeFavorite(post);
+    } else {
+      addFavorite(post);
+    }
+  };
 
   return (
     <div
@@ -44,7 +51,7 @@ const PostCard = ({ post }: { post: Post }) => {
           className="h-full relative z-10 p-4 like-button"
           onClick={onFavsChange}
         >
-          {like ? (
+          {isFavorite ? (
             <HeartIcon className="h-12 w-12 text-red-600" />
           ) : (
             <HeartOutlineIcon className="h-12 w-12 text-red-600" />

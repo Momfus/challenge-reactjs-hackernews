@@ -15,6 +15,10 @@ export const HackerNewsContext = createContext({
   technologyType: "",
   setTechnologyType: (technologyType: string) => {},
   posts: [] as Post[],
+  favs: [] as Post[],
+  setFavs: (favs: Post[]) => {},
+  addFavorite: (post: Post) => {},
+  removeFavorite: (post: Post) => {},
 });
 
 export const HackerNewsProvider: React.FC<{ children: React.ReactNode }> = ({
@@ -22,6 +26,21 @@ export const HackerNewsProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   // Posts state
   const [posts, setPosts] = useState<Post[]>([]);
+
+  // Load favorites state
+  const [favs, setFavs] = useState<Post[]>(loadFavorites());
+
+  const addFavorite = (post: Post) => {
+    const newFavs = [...favs, post];
+    setFavs(newFavs);
+    saveFavorites(newFavs);
+  };
+
+  const removeFavorite = (post: Post) => {
+    const newFavs = favs.filter((fav) => fav.objectID !== post.objectID);
+    setFavs(newFavs);
+    saveFavorites(newFavs);
+  };
 
   // Filters and pagination state
   const [page, setPage] = useState<number>(0);
@@ -36,6 +55,10 @@ export const HackerNewsProvider: React.FC<{ children: React.ReactNode }> = ({
   useEffect(() => {
     const loadingPostFromApi = async () => {
       setLoadingApi(true);
+      console.log(
+        `${baseUrl}/${searchtype}?query=${technologyType}&page=${page}&hitsPerPage=${perPage}`
+      );
+
       try {
         const response = await fetch(
           `${baseUrl}/${searchtype}?query=${technologyType}&page=${page}&hitsPerPage=${perPage}`
@@ -51,7 +74,7 @@ export const HackerNewsProvider: React.FC<{ children: React.ReactNode }> = ({
         setPosts(dataPostsArray);
         console.log(dataPostsArray);
       } catch (error) {
-        console.log(error);
+        console.error(error);
       } finally {
         setLoadingApi(false);
       }
@@ -71,6 +94,10 @@ export const HackerNewsProvider: React.FC<{ children: React.ReactNode }> = ({
         technologyType,
         setTechnologyType,
         posts,
+        favs,
+        setFavs,
+        addFavorite,
+        removeFavorite,
       }}
     >
       {children}

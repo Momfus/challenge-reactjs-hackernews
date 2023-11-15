@@ -1,4 +1,3 @@
-import "./App.css";
 import { HackerNewsProvider } from "./Contexts/hackerNewsContext";
 import { BrowserRouter } from "react-router-dom";
 
@@ -11,9 +10,7 @@ function App() {
       <BrowserRouter>
         <Header title="Hacker News" />
 
-        <div className="app-routes">
-          <AppRoutes />
-        </div>
+        <AppRoutes />
       </BrowserRouter>
     </HackerNewsProvider>
   );

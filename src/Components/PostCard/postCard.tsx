@@ -36,7 +36,7 @@ const PostCard = ({ post }: { post: Post }) => {
           </div>
         )}
         <p className="text-sm font-medium leading-6 tracking-wide py-2 pr-16 text-gray-600">
-          {truncateText(post.story_title, 8)}
+          {truncateText(post.story_title, 7)}
         </p>
       </div>
       <div className="h-full  flex items-center justify-center ">

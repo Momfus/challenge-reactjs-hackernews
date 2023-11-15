@@ -8,17 +8,13 @@ const All = () => {
 
   const renderAllList = () => {
     return (
-      <div>
+      <Layout>
         <PostListPage postListData={context.posts}></PostListPage>
-      </div>
+      </Layout>
     );
   };
 
-  return (
-    <Layout>
-      {context.loadingApi ? <p>Loading...</p> : <h2>{renderAllList()}</h2>}
-    </Layout>
-  );
+  return <div className="block-overflow">{renderAllList()}</div>;
 };
 
 export default All;

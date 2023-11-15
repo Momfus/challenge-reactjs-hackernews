@@ -1,4 +1,4 @@
-import Layout from "../../Component/Layout/layout";
+import Layout from "../../Components/Layout/layout";
 
 function MyFavs() {
   return (

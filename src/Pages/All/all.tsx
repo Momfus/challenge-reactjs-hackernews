@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import Layout from "../../Component/Layout/layout";
-import { HackerNewsContext } from "../../Context/hackerNewsContext";
+import Layout from "../../Components/Layout/layout";
+import { HackerNewsContext } from "../../Contexts/hackerNewsContext";
 
 function All() {
   const context: any = useContext(HackerNewsContext);

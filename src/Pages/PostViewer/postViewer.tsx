@@ -17,9 +17,13 @@ const PostViewer = ({ typeView }: { typeView: VIEWTYPE }) => {
   return (
     <>
       <PostSelectorType typeView={typeView} />
-      <div className="flex justify-center mt-5">
-        <TechFilter></TechFilter>
-      </div>
+      {typeView === VIEWTYPE.ALL ? (
+        <div className="flex justify-center mt-5">
+          <TechFilter></TechFilter>
+        </div>
+      ) : (
+        <></>
+      )}
       {context.loadingApi ? <Loading /> : renderPostList()}
     </>
   );

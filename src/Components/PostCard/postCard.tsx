@@ -12,6 +12,11 @@ const PostCard = ({ post }: { post: Post }) => {
 
   const isFavorite = favs.some((fav) => fav.objectID === post.objectID);
 
+  /**
+   * Calculates the time lapse between the current date and the creation date of a post, and returns a string with a message indicating the time lapse and the author of the post (if available).
+   * @param crateadAt The creation date of the post in string format.
+   * @returns A string with a message indicating the time lapse and the author of the post (if available).
+   */
   const timeLapseText = (crateadAt: string) => {
     // Just in case, if the author exists (double check)
     const author = post?.author ? `by ${post.author}` : "";
@@ -49,6 +54,12 @@ const PostCard = ({ post }: { post: Post }) => {
     }
   };
 
+  /**
+   * Handles the click event of the favorite button for a post.
+   * If the post is already a favorite, it removes it from the favorites list.
+   * If it's not a favorite, it adds it to the favorites list.
+   * @param event The click event.
+   */
   const onFavsChange = (event: React.MouseEvent) => {
     event.stopPropagation();
 

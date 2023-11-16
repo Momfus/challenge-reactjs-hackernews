@@ -3,7 +3,11 @@ import Layout from "../../Components/Layout/layout";
 import PostListPage from "../../Components/PostListPage/postListPage";
 import { HackerNewsContext } from "../../Contexts/hackerNewsContext";
 
-function MyFavs() {
+const MyFavs = () => {
+  /**
+   * Retrieves the list of favorite items from the HackerNewsContext.
+   * @returns {Array<FavoriteItem>} An array of favorite items.
+   */
   const { favs } = useContext(HackerNewsContext);
 
   return (
@@ -15,6 +19,6 @@ function MyFavs() {
       )}
     </Layout>
   );
-}
+};
 
 export default MyFavs;

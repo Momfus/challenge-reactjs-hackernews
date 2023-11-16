@@ -1,9 +1,14 @@
 import { useEffect, useState } from "react";
-import { VIEWTYPE } from "../Types/type-general";
 import "./postSelectorType.css";
 import Layout from "../Layout/layout";
 import { useNavigate } from "react-router-dom";
+import { VIEWTYPE } from "../../Types/type-general";
 
+/**
+ * Component that allows the user to select between two view types: all posts or favorite posts.
+ * @param typeView - The current view type selected by the user.
+ * @returns A React component that renders two buttons to toggle between view types.
+ */
 const PostSelectorType = ({ typeView }: { typeView: VIEWTYPE }) => {
   const navigate = useNavigate();
 

@@ -11,6 +11,12 @@ interface PaginatorProps {
 const Paginator = ({ pageCount, onPageChange }: PaginatorProps) => {
   const context = useContext(HackerNewsContext);
 
+  /**
+   * Handles the change event of the paginator component.
+   * @param {ChangeEvent<unknown>} event - The event object.
+   * @param {number} value - The new page number.
+   * @returns {void}
+   */
   const handleChange = (event: ChangeEvent<unknown>, value: number) => {
     onPageChange(value);
   };

@@ -1,6 +1,11 @@
 import { Post } from "../../Models/post.model";
 import PostCard from "../PostCard/postCard";
 
+/**
+ * Renders a list of posts in a grid layout.
+ * @param postListData An array of Post objects to be displayed.
+ * @returns A React component that displays the list of posts.
+ */
 const PostListPage = ({ postListData }: { postListData: Post[] }) => {
   return (
     <>

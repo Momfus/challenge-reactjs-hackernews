@@ -7,7 +7,11 @@ interface TechFilterProps {
   setTechnologyType: (value: string) => void;
 }
 
-function TechFilter() {
+/**
+ * Component that renders a select input to filter news by technology type.
+ * @returns JSX.Element
+ */
+const TechFilter = () => {
   const { setTechnologyType } = useContext(HackerNewsContext);
 
   // Selector options
@@ -31,7 +35,10 @@ function TechFilter() {
     technologyTypes[0]
   );
 
-  // Handlers
+  /**
+   * Handles the change event of the technology type select input.
+   * @param selectedOption - The selected option from the select input.
+   */
   const handleSelectChange = (selectedOption: TechologyOptionType | null) => {
     if (selectedOption) {
       setSelectedTechType(selectedOption);
@@ -39,7 +46,7 @@ function TechFilter() {
     }
   };
 
-  const formatOptionLabel = ({ label, icon }: TechologyOptionType) => (
+  const renderFormatOptionLabel = ({ label, icon }: TechologyOptionType) => (
     <div className="flex align-middle">
       {icon && <img src={icon} alt={label} height="20" className="mr-1" />}
       {label}
@@ -54,11 +61,11 @@ function TechFilter() {
         value={selectedTechType}
         onChange={handleSelectChange}
         options={technologyTypes}
-        formatOptionLabel={formatOptionLabel}
+        formatOptionLabel={renderFormatOptionLabel}
         className="block w-full mt-1 rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
       />
     </div>
   );
-}
+};
 
 export default TechFilter;

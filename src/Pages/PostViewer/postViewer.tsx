@@ -1,16 +1,20 @@
-import { VIEWTYPE } from "../../Components/Types/type-general";
+import { useContext } from "react";
 import All from "../All/all";
 import MyFavs from "../MyFavs/myFavs";
 import PostSelectorType from "../../Components/PostSelectorType/postSelectorType";
-import { useContext } from "react";
-import { HackerNewsContext } from "../../Contexts/hackerNewsContext";
-import Loading from "../../shared/loading";
-import TechFilter from "../../Components/TechFilter/techFilter";
 import Paginator from "../../Components/Paginator/paginator";
+import TechFilter from "../../Components/TechFilter/techFilter";
+import Loading from "../../shared/loading";
+import { HackerNewsContext } from "../../Contexts/hackerNewsContext";
+import { VIEWTYPE } from "../../Types/type-general";
 
 const PostViewer = ({ typeView }: { typeView: VIEWTYPE }) => {
   const context = useContext(HackerNewsContext);
 
+  /**
+   * Updates the current page in the context to the given page number.
+   * @param page - The page number to set in the context.
+   */
   const handlePageChange = (page: number) => {
     context.setPage(page);
   };

@@ -1,8 +1,11 @@
 import Layout from "../../Components/Layout/layout";
-
 import { useNavigate } from "react-router-dom";
 
-function NotFound() {
+/**
+ * Renders a NotFound page with a message and a button to navigate back to the home page.
+ * @returns JSX.Element
+ */
+const NotFound = () => {
   const navigate = useNavigate();
 
   return (
@@ -21,6 +24,6 @@ function NotFound() {
       </div>
     </Layout>
   );
-}
+};
 
 export default NotFound;

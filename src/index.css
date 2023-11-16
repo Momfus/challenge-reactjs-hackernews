@@ -11,13 +11,13 @@ body {
 
 .block-overflow {
   overflow-y: auto;
-  height: calc(100vh - 150px);
+  height: calc(100vh - 380px);
   margin: 0.25em 0.5em 0 0.25em;
 }
 
 @media (max-width: 768px) {
   .block-overflow {
-    height: calc(100vh - 180px);
+    height: calc(100vh - 400px);
   }
 }
 

@@ -1,7 +1,7 @@
 import { useRoutes } from "react-router-dom";
 import NotFound from "../Pages/NotFound/notFound";
 import PostViewer from "../Pages/PostViewer/postViewer";
-import { VIEWTYPE } from "../Components/Types/type-general";
+import { VIEWTYPE } from "../Types/type-general";
 
 export const AppRoutes = () => {
   return useRoutes([

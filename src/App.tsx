@@ -4,7 +4,7 @@ import { HashRouter as Router } from "react-router-dom";
 import { AppRoutes } from "./Routes/routes";
 import Header from "./Components/Header/header";
 
-function App() {
+const App = () => {
   return (
     <HackerNewsProvider>
       <Router>
@@ -13,6 +13,6 @@ function App() {
       </Router>
     </HackerNewsProvider>
   );
-}
+};
 
 export default App;

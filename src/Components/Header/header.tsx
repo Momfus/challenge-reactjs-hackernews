@@ -5,6 +5,12 @@ interface HeaderProps {
   title: string;
 }
 
+/**
+ * Header component.
+ * @param {HeaderProps} props - Component properties.
+ * @param {string} props.title - Header title.
+ * @returns {JSX.Element} Header component.
+ */
 const Header: React.FC<HeaderProps> = ({ title }) => {
   return (
     <header className="flex flex-col md:flex-row justify-between items-center p-3 md:p-6  mx-auto">

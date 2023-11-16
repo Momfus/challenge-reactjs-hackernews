@@ -4,18 +4,18 @@
 
 **STACK**
 You must use the following technologies to build the app:
-● The latest version of the React framework.
-● HTML/CSS only for building the UI components (no 3rd party components library).
-● Styled components or CSS Stylesheets.
-● Deployment of the web app on Netlify from your Git repository using the New Site
+- The latest version of the React framework.
+- HTML/CSS only for building the UI components (no 3rd party components library).
+- Styled components or CSS Stylesheets.
+- Deployment of the web app on Netlify from your Git repository using the New Site
 from Git workflow.
 
 **API**
 The web application must request data to the [Hackers News public API](https://hn.algolia.com/api). The dropdown Apply Digital selector component should use the URL parameter “query” from the “search by date” API in order to filter the posts, for example:
 
-● Angular: [https://hn.algolia.com/api/v1/search_by_date?query=angular&page=0](https://hn.algolia.com/api/v1/search_by_date?query=angular&page=0)
-● React: [https://hn.algolia.com/api/v1/search_by_date?query=reactjs&page=0](https://hn.algolia.com/api/v1/search_by_date?query=reactjs&page=0)
-● Vuejs: [https://hn.algolia.com/api/v1/search_by_date?query=vuejs&page=0](https://hn.algolia.com/api/v1/search_by_date?query=vuejs&page=0)
+- Angular: [https://hn.algolia.com/api/v1/search_by_date?query=angular&page=0](https://hn.algolia.com/api/v1/search_by_date?query=angular&page=0)
+- React: [https://hn.algolia.com/api/v1/search_by_date?query=reactjs&page=0](https://hn.algolia.com/api/v1/search_by_date?query=reactjs&page=0)
+- Vuejs: [https://hn.algolia.com/api/v1/search_by_date?query=vuejs&page=0](https://hn.algolia.com/api/v1/search_by_date?query=vuejs&page=0)
 
 The pagination should be implemented using the “page” URL parameter from this API.
 
@@ -23,33 +23,33 @@ The attributes to use for the post UI are author, story_title, story_url, create
 discarded from the data.
 
 **FUNCTIONALITY**
-● The selected filter should persist on the local storage
-● The favorited posts should persist on the local storage
-● The web app is expected to work as a responsive web application
-● If you decide to implement the pagination component, it should behave like this
+- The selected filter should persist on the local storage
+- The favorited posts should persist on the local storage
+- The web app is expected to work as a responsive web application
+- If you decide to implement the pagination component, it should behave like this
 one: https://material-ui.com/components/pagination/
-● When clicking on the row, a new tab should be open with the link of the post
+- When clicking on the row, a new tab should be open with the link of the post
 (story_url)
-● Clicking on the “like button” should not trigger the opening of the post URL link
-● When hovering on the row, apply opacity to the entire row and its children (texts,
+- Clicking on the “like button” should not trigger the opening of the post URL link
+- When hovering on the row, apply opacity to the entire row and its children (texts,
 icons, like button, etc)
 
 **BONUS**
-● Implement unit testing
-● Good use of Typescript
-● Pagination as infinite scroll
+- Implement unit testing
+- Good use of Typescript
+- Pagination as infinite scroll
 
 WHAT WILL BE EVALUATED?
-● Documentation
-● Testing
-● Clean code
-● Software design
-● Git history
-● Solution deployed
+- Documentation
+- Testing
+- Clean code
+- Software design
+- Git history
+- Solution deployed
 
 **DELIVERABLES**
-● Netlify link to the deployed web application
-● Public GitHub / GitLab / Bitbucket repository URL
+- Netlify link to the deployed web application
+- Public GitHub / GitLab / Bitbucket repository URL
 
 The deliverable should be returned to the recruiter who emailed the test
 

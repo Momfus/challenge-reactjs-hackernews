@@ -19,6 +19,7 @@ export const HackerNewsContext = createContext({
   setFavs: (favs: Post[]) => {},
   addFavorite: (post: Post) => {},
   removeFavorite: (post: Post) => {},
+  totalCount: 0,
 });
 
 export const HackerNewsProvider: React.FC<{ children: React.ReactNode }> = ({
@@ -46,6 +47,7 @@ export const HackerNewsProvider: React.FC<{ children: React.ReactNode }> = ({
   const [page, setPage] = useState<number>(0);
   const [perPage, setPerPage] = useState<number>(10);
   const [technologyType, setTechnologyType] = useState<string>("");
+  const [totalCount, setTotalCount] = useState<number>(0);
 
   // Api loading state
   const [loadingApi, setLoadingApi] = useState<boolean>(true);
@@ -67,10 +69,13 @@ export const HackerNewsProvider: React.FC<{ children: React.ReactNode }> = ({
 
       try {
         const response = await fetch(
-          `${baseUrl}/${searchtype}?query=${technologyType}&page=${page}&hitsPerPage=${perPage}`
+          `${baseUrl}/${searchtype}?query=${technologyType}&page=${
+            page - 1
+          }&hitsPerPage=${perPage}`
         );
 
         const dataResults: PostResultsSearch = await response.json();
+        setTotalCount(dataResults.nbPages);
 
         // The attributes to use for the post UI are author, story_title, story_url, created_at (the API manual don't give any information how to filter the null values)
         let dataPostsArray = dataResults.hits.filter(
@@ -107,6 +112,7 @@ export const HackerNewsProvider: React.FC<{ children: React.ReactNode }> = ({
         setFavs,
         addFavorite,
         removeFavorite,
+        totalCount,
       }}
     >
       {children}

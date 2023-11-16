@@ -6,12 +6,37 @@ import { useContext } from "react";
 import { HackerNewsContext } from "../../Contexts/hackerNewsContext";
 import Loading from "../../shared/loading";
 import TechFilter from "../../Components/TechFilter/techFilter";
+import Paginator from "../../Components/Paginator/paginator";
 
 const PostViewer = ({ typeView }: { typeView: VIEWTYPE }) => {
   const context = useContext(HackerNewsContext);
 
+  const handlePageChange = (page: number) => {
+    context.setPage(page);
+  };
+
   const renderPostList = () => {
-    return typeView === VIEWTYPE.ALL ? <All /> : <MyFavs />;
+    return typeView === VIEWTYPE.ALL ? (
+      <>
+        <Paginator
+          pageCount={context.totalCount}
+          onPageChange={handlePageChange}
+        />
+        {context.loadingApi ? (
+          <div className="block-overflow ">
+            <Loading />{" "}
+          </div>
+        ) : (
+          <All />
+        )}
+        <Paginator
+          pageCount={context.totalCount}
+          onPageChange={handlePageChange}
+        />
+      </>
+    ) : (
+      <MyFavs />
+    );
   };
 
   return (
@@ -24,7 +49,7 @@ const PostViewer = ({ typeView }: { typeView: VIEWTYPE }) => {
       ) : (
         <></>
       )}
-      {context.loadingApi ? <Loading /> : renderPostList()}
+      {renderPostList()}
     </>
   );
 };

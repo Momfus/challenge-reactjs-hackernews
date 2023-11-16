@@ -23,7 +23,7 @@ const searchtype: string = "search_by_date";
  */
 export const HackerNewsContext = createContext({
   loadingApi: true,
-  page: 0,
+  page: 1,
   setPage: (page: number) => {},
   technologyType: "",
   setTechnologyType: (technologyType: string) => {},
@@ -62,7 +62,7 @@ export const HackerNewsProvider: React.FC<{ children: React.ReactNode }> = ({
   };
 
   // Filters and pagination state
-  const [page, setPage] = useState<number>(0);
+  const [page, setPage] = useState<number>(1);
   const [perPage, setPerPage] = useState<number>(10);
   const [technologyType, setTechnologyType] = useState<string>("");
   const [totalCount, setTotalCount] = useState<number>(0);
@@ -90,8 +90,6 @@ export const HackerNewsProvider: React.FC<{ children: React.ReactNode }> = ({
     const loadingPostFromApi = async () => {
       setLoadingApi(true);
 
-      console.log(favs);
-
       try {
         const response = await fetch(
           `${baseUrl}/${searchtype}?query=${technologyType}&page=${
@@ -111,7 +109,6 @@ export const HackerNewsProvider: React.FC<{ children: React.ReactNode }> = ({
         dataPostsArray = checkForPostsAsLiked(dataPostsArray);
 
         setPosts(dataPostsArray);
-        console.log(dataPostsArray);
       } catch (error) {
         console.error(error);
       } finally {
